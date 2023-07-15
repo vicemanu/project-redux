@@ -1,7 +1,7 @@
 import { useState } from 'react'; 
 import styles from './login.module.css'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../redux/user/slice'
 
@@ -10,6 +10,8 @@ export function Login() {
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+
+  const navigate = useNavigate()
 
   function handleLogin(e){
     e.preventDefault()
@@ -23,6 +25,8 @@ export function Login() {
       name: name,
       email: email,
     }))
+
+    navigate('/painel')
   }
 
   return (
