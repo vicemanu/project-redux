@@ -19,9 +19,15 @@ export const userSlice = createSlice({
                     address: null,
                 }
             }
+        },
+        logoutUser: (state) => {
+            return {
+                ...state,
+                user: null,
+            }
         }
     }
 })/**Você chama dependendo do que deseja, como é um user você chama userSlice, se for fazer de um carrinho de comprar chamaria carroSlice por exemplo */
 
-export const { createUser } = userSlice.actions
+export const { createUser, logoutUser } = userSlice.actions
 export default userSlice.reducer;
